@@ -21,7 +21,8 @@ class MyDrawer extends StatelessWidget {
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: NetworkImage(imageUrl),
                   ),
-                )),
+                )
+                ),
             ListTile(
               leading: Icon(
                 CupertinoIcons.home,
