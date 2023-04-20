@@ -10,8 +10,11 @@ class CartPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: "Cart".text.color(context.accentColor).make(),
       ),
-      body: Column(
-          children: [_CartList().p32().expand(), Divider(), _CartTotal()]),
+      body: Column(children: [
+        _CartList().p32().expand(),
+        const Divider(),
+        _CartTotal()
+      ]),
     );
   }
 }
@@ -27,9 +30,13 @@ class _CartTotal extends StatelessWidget {
           "\$9999".text.xl5.color(context.accentColor).make(),
           30.widthBox,
           ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: "Buying not supported yet.".text.make()));
+                  },
                   style: ButtonStyle(
                       backgroundColor:
+                          // ignore: deprecated_member_use
                           MaterialStateProperty.all(context.theme.buttonColor)),
                   child: "Buy".text.white.make())
               .w32(context),
@@ -50,9 +57,9 @@ class _CartListState extends State<_CartList> {
     return ListView.builder(
       itemCount: 5,
       itemBuilder: (context, index) => ListTile(
-        leading: Icon(Icons.done),
+        leading: const Icon(Icons.done),
         trailing: IconButton(
-          icon: Icon(Icons.remove_circle_outline),
+          icon: const Icon(Icons.remove_circle_outline),
           onPressed: () {},
         ),
         title: "Item 1".text.make(),
