@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:s/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -18,7 +19,8 @@ class _LoginPageState extends State<LoginPage> {
         changeButton = true;
       });
 
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
+      // ignore: use_build_context_synchronously
       await Navigator.pushNamed(context, MyRoutes.homeRoute);
       setState(() {
         changeButton = false;
@@ -29,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: context.canvasColor,
       child: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -44,7 +46,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Text(
                 "Welcome $name",
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 20.0,
@@ -87,7 +90,8 @@ class _LoginPageState extends State<LoginPage> {
                       height: 20.0,
                     ),
                     Material(
-                      color: Colors.deepPurple,
+                      // ignore: deprecated_member_use
+                      color: context.theme.buttonColor,
                       borderRadius:
                           BorderRadius.circular(changeButton ? 50 : 8),
                       child: InkWell(
