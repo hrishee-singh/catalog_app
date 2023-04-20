@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:s/models/catalog.dart';
-import 'package:s/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeDetailPage extends StatelessWidget {
@@ -42,7 +41,7 @@ class HomeDetailPage extends StatelessWidget {
         child: Column(
           children: [
             Hero(
-              tag: Key(catalog.id),
+              tag: Key(catalog.id.toString()),
               child: Image.network(catalog.image),
             ).h32(context),
             Expanded(
