@@ -2,14 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:s/models/catalog.dart';
-import 'package:s/utils/routes.dart';
-import 'package:s/widgets/themes.dart';
+import 'package:s/utils/routes.dart'; 
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
 import '../widgets/home_widgets/catalog_header.dart';
 import '../widgets/home_widgets/catalog_list.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -40,7 +41,7 @@ class _HomePageState extends State<HomePage> {
         onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
         // ignore: deprecated_member_use
         backgroundColor: context.theme.buttonColor,
-        child: Icon(
+        child: const Icon(
           CupertinoIcons.cart,
           color: Colors.white,
         ),
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CatalogHeader(),
-              if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+              if (CatalogModel.items.isNotEmpty)
                 CatalogList().p16().expand()
               else
                 Center(

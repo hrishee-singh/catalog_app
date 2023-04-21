@@ -3,6 +3,8 @@ import 'package:s/utils/routes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   State<LoginPage> createState() => _LoginPageState();
 }

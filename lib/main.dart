@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:s/core/store.dart';
 import 'package:s/pages/cart_page.dart';
 import 'package:s/pages/login_page1.dart';
 import 'package:s/pages/home_page1.dart';
 import 'package:s/utils/routes.dart';
 import 'package:s/widgets/themes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(VxState(store: MyStore(),
+  child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,10 +24,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: MyRoutes.homeRoute,
       routes: {
-        "/": (context) => LoginPage(),
-        MyRoutes.homeRoute: (context) => HomePage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
-        MyRoutes.cartRoute: (context) => CartPage(),
+        "/": (context) => const LoginPage(),
+        MyRoutes.homeRoute: (context) => const HomePage(),
+        MyRoutes.loginRoute: (context) => const LoginPage(),
+        MyRoutes.cartRoute: (context) => const CartPage(),
       },
     );
   }
